@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Attention!</title>
+
+	<link href="assets/app.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="monster-life">
+			<div id="monster-bar" style="width: 100%"></div>
+			<div class="percent">
+				<span id="monster-percent">100</span>
+			</div>
+		</div>
+		<pre id="alive">
+                                              ,--,  ,.-.
+                ,                   \,       '-,-`,'-.' | ._
+               /|           \    ,   |\         }  )/  / `-,',
+               [ '          |\  /|   | |        /  \|  |/`  ,`
+               | |       ,.`  `,` `, | |  _,...(   (      _',
+               \  \  __ ,-` `  ,  , `/ |,'      Y     (   \_L\
+                \  \_\,``,   ` , ,  /  |         )         _,/
+                 \  '  `  ,_ _`_,-,<._.<        /         /
+                  ', `>.,`  `  `   ,., |_      |         /
+                    \/`  `,   `   ,`  | /__,.-`    _,   `\
+                -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                 \_,,.) /\    ` /  / ) (-,, ``    ,        |
+                ,` )  | \_\       '-`  |  `(               \
+               /  /```(   , --, ,' \   |`<`    ,            |
+              /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+        ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+       (-, \           ) \ ('_.-._)/ /,`    /
+       | /  `          `/ \\ V   V, /`     /
+    ,--\(        ,     <_/`\\     ||      /
+   (   ,``-     \/|         \-A.A-`|     /
+  ,>,_ )_,..(    )\          -,,_-`  _--`
+ (_ \|`   _,/_  /  \_            ,--`
+  \( `   <.,../`     `-.._   _,-`
+   `                      ```
+		</pre>
+		<pre id="dead">
+                                              ,--,  ,.-.
+                ,                   \,       '-,-`,'-.' | ._
+               /|           \    ,   |\         }  )/  / `-,',
+               [ '          |\  /|   | |        /  \|  |/`  ,`
+               | |       ,.`  `,` `, | |  _,...(   (      _',
+               \  \  __ ,-` `  ,  , `/ |,'      Y     (   \_L\
+                \  \_\,``,   ` , ,  /  |         )         _,/
+                 \  '  `  ,_ _`_,-,<._.<        /         /
+                  ', `>.,`  `  `   ,., |_      |         /
+                    \/`  `,   `   ,`  | /__,.-`    _,   `\
+                -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                 \_,,.)________________(-,, ``    ,        |
+                ,` )  |      DEAD      |  `(               \
+               /  /```(¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|`<`    ,            |
+              /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+        ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+       (-, \           ) \ ('_.-._)/ /,`    /
+       | /  `          `/ \\ V   V, /`     /
+    ,--\(        ,     <_/`\\     ||      /
+   (   ,``-     \/|         \-A.A-`|     /
+  ,>,_ )_,..(    )\          -,,_-`  _--`
+ (_ \|`   _,/_  /  \_            ,--`
+  \( `   <.,../`     `-.._   _,-`
+   `                      ```
+		</pre>
+		<div class="control">
+			<button id="attack" onclick="ft_attack();">Attaquer</button>
+			<button id="heal" onclick="ft_heal(3);">Se soigner</button>
+			<p>Il vous reste <span id="potions">3 potions.</span></p>
+		</div>
+		<div class="player-life">
+			<div id="player-bar" style="width: 100%"></div>
+			<div class="percent">
+				<span id="player-percent">100/100</span>
+			</div>
+		</div>
+	</div>
+	<script src="assets/app.js" type="text/javascript"></script>
+</body>
+
+</html>

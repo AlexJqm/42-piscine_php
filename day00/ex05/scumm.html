@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Text-Adventure</title>
+
+	<link href="assets/app.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div id="starter">
+			<h1>Bienvenue</h1>
+			<p>Veuillez entrer votre pseudonyme pour commencer l'aventure.</p>
+
+			<input type="text" id="player_name" placeholder="Pseudonyme" autofocus required>
+			<button onclick="ft_starter();">Continuer</button>
+		</div>
+		<div id="first_step">
+			<pre>
+		 ________________________
+		|                        |
+			-------+  \
+			\\\\\\\\\  \
+			//_//__\\\  |
+			/\0' `0~ |\ /
+			(|^<, ^  .)|
+			 ( ._.  ||/
+			  \ .  / |
+			   +--/  |
+		|________________________|
+			</pre>
+			<p>Bonjour <strong id="pseudo"></strong>, pour debuter ton aventure, choisis ta classe.</p>
+			<form>
+				<input type="radio" name="player_class" value="Guerrier"> Guerrier<br>
+				<input type="radio" name="player_class" value="Mage"> Mage<br>
+				<input type="radio" name="player_class" value="Archer"> Archer<br>
+			</form>
+			<button onclick="ft_first_step();">Continuer</button>
+		</div>
+		<div id="second_step">
+			<pre>
+		 ________________________
+		|                        |
+			-------+  \
+			\\\\\\\\\  \
+			//_//__\\\  |
+			/\0' `0~ |\ /
+			(|^<, ^  .)|
+			( .0.  ||/
+			 \ .  / |
+			  +--/  |
+		|________________________|
+			</pre>
+			<p>Vous avez choisi de devenir <strong id="classe"></strong>, bonne décision! Voici une carte,<br>
+			elle vous permettra de vous guider dans ses contrées lointaines, bonne chance aventurier....</p>
+			<button onclick="window.location='map.html'">Ouvrir la carte</button>
+		</div>
+	</div>
+	<script src="assets/app.js" type="text/javascript"></script>
+</body>
+
+</html>

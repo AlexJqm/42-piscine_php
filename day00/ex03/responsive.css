@@ -1,0 +1,180 @@
+body,
+img {
+	transition: all .2s linear;
+}
+
+table {
+	text-align: center;
+	vertical-align: middle;
+	font-family: Arial;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td {
+	font-size: 25px;
+	font-weight: bold;
+	min-width: 65px;
+	page-break-inside: avoid;
+}
+
+th {
+	background-color: #d3d3d3;
+	min-width: 65px;
+}
+
+.chalcogen {
+	background-color: #82f282;
+}
+
+.inertgase {
+	background-color: #c0ffff;
+}
+
+.alkali {
+	background-color: #FF6666;
+}
+
+.earthmetal {
+	background-color: #FFDEAD;
+}
+
+.metalloid {
+	background-color: #cccc99;
+}
+
+.posttrans {
+	background-color: #cccccc;
+}
+
+.halogen {
+	background-color: #ffff99;
+}
+
+.transmetal {
+	background-color: #ffc0c0;
+}
+
+.lanthanoid {
+	background-color: #FFBFFF;
+}
+
+.actinoid {
+	background-color: #ef99cc;
+}
+
+.superact {
+	background-color: #33cc66;
+}
+
+.m {
+	text-align: right;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 2px 2px 5px 2px;
+}
+
+.num {
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 5px 2px 2px 2px;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 15%;
+	padding-top: 20px;
+}
+
+@media only screen and (max-width: 1330px) {
+	table {
+		text-align: center;
+		vertical-align: middle;
+		font-family: Arial;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	td {
+		font-size: 22px;
+		font-weight: bold;
+		min-width: 45px;
+		page-break-inside: avoid;
+	}
+
+	.m {
+		font-size: 13px;
+	}
+
+	th {
+		background-color: #d3d3d3;
+		min-width: 45px;
+	}
+
+	.center {
+		width: 30%
+	}
+}
+
+@media only screen and (max-width: 1040px) {
+	table {
+		text-align: center;
+		vertical-align: middle;
+		font-family: Arial;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	td {
+		font-size: 20px;
+		font-weight: bold;
+		min-width: 20px;
+		page-break-inside: avoid;
+	}
+
+	.m {
+		font-size: 10px;
+	}
+
+	th {
+		background-color: #d3d3d3;
+		min-width: 20px;
+	}
+
+	.center {
+		width: 40%
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	table {
+		text-align: center;
+		vertical-align: middle;
+		font-family: Arial;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	td {
+		font-size: 15px;
+		font-weight: bold;
+		min-width: 15px;
+		page-break-inside: avoid;
+	}
+
+	.m {
+		font-size: 7px;
+	}
+
+	th {
+		background-color: #d3d3d3;
+		min-width: 14px;
+	}
+
+	.center {
+		width: 50%
+	}
+}

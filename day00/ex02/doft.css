@@ -1,0 +1,160 @@
+body {
+	background-color: #505050;
+	margin: 0 auto;
+	width: 1420px;
+}
+
+header {
+	margin-top: 20px;
+	height: 137px;
+	width: 1420px;
+	position: relative;
+}
+
+header,
+.nav-left,
+.nav-right,
+.article,
+.form {
+	border-radius: 9px;
+	box-shadow: 10px 10px 10px #000000;
+	background-color: #909090;
+}
+
+#logo {
+	height: 110px;
+	margin: 10px 0 0 10px;
+}
+
+#loupe {
+	position: absolute;
+	top: 10px;
+	right: 40px;
+}
+
+.delete,
+.refresh {
+	position: absolute;
+	right: 10px;
+	height: 20px;
+	width: 20px;
+}
+
+.refresh {
+	top: 10px;
+}
+
+.delete {
+	bottom: 10px;
+}
+
+.nav-left,
+.nav-right {
+	width: 108px;
+	height: 410px;
+	float: left;
+	margin: 20px 0 0 30px;
+	padding: 15px 0 0 32px;
+}
+
+.nav-right {
+	margin: 20px 0 0 40px;
+}
+
+.icons {
+	width: 70px;
+	margin-bottom: 6px;
+}
+
+article {
+	margin: 10px 0 0 20px;
+	width: 1020px;
+	height: 582px;
+	float: left;
+	position: relative;
+}
+
+#cluster {
+	margin: 10px;
+	width: 1000px;
+	height: 562px;
+	border: 10px solid #909090;
+	border-radius: 9px;
+	box-shadow: 10px 10px 10px #000000;
+}
+
+.box {
+	height: 15px;
+	margin-left: 3px;
+	width: 375px;
+	border: 3px solid #9d969d;
+	border-bottom-color: #fff;
+	border-right-color: #fff;
+}
+
+.send {
+	border: 1px solid #a8a4a5;
+	border-radius: 1px;
+	background-color: #f4eff3;
+	background: #0079FF;
+	margin-left: 4px;
+	height: 22px;
+	font-size: 12px;
+	letter-spacing: 1px;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f4eff3), to(#dcdcdc));
+}
+
+.form {
+	background-color: #88ff89;
+	width: 500px;
+	height: 150px;
+	position: absolute;
+	bottom: -100px;
+	left: -245px;
+	padding: 10px;
+	font-family: arial;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.tall {
+	font-family: Times;
+	font-size: 31px;
+}
+
+.shadow {
+	text-shadow: 5px 5px 5px #ff0000;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.wall {
+	background-image: url('resources/brick.jpg');
+	width: 120px;
+	height: 65px;
+	margin: -5px 0 0 -23px;
+}
+
+#clicked {
+	border: 5px solid red;
+	margin-left: -5px;
+	border-radius: 5px;
+}
+
+.chair {
+	position: fixed;
+	top: 506px;
+	left: 1100px;
+	width: 127px;
+	height: 223px;
+}
+
+.apple {
+	position: fixed;
+	top: 491px;
+	left: 1560px;
+	width: 203px;
+	height: 183px;
+}
