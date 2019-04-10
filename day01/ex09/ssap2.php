@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-    function	ascii_sort($a, $b) {
+    function ascii_sort($a, $b) {
  	    $a = strtolower($a);
  	    $b = strtolower($b);
  	    $i = 0;
