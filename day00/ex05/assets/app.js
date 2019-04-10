@@ -24,8 +24,7 @@ function ft_attack() {
 	}
 	if (pdv_player < 40) {
 		player.style.backgroundColor = "#e74c3c";
-	}
-	else if (pdv_player > 40) {
+	} else if (pdv_player > 40) {
 		player.style.backgroundColor = "#2ecc71";
 	}
 	if (pdv_monster > 10) {
@@ -35,8 +34,7 @@ function ft_attack() {
 		player.style.width = degat_player + "%";
 		document.getElementById("monster-percent").innerHTML = degat_monster;
 		document.getElementById("player-percent").innerHTML = degat_player;
-	}
-	else {
+	} else {
 		monster.style.opacity = "0";
 		document.getElementById("monster-percent").innerHTML = "";
 		document.getElementById("alive").style.display = "none";
@@ -51,16 +49,14 @@ function ft_heal() {
 	if (potions != 0) {
 		if (pdv_player > 80) {
 			var potion = (100 - pdv_player);
-		}
-		else {
+		} else {
 			var potion = 20;
 		}
 		player.style.width = (pdv_player + potion) + "%";
 		document.getElementById("player-percent").innerHTML = (pdv_player + potion);
 		if (potions <= 2) {
 			document.getElementById("potions").innerHTML = potions - 1 + " potion.";
-		}
-		else {
+		} else {
 			document.getElementById("potions").innerHTML = potions - 1 + " potions.";
 		}
 	}

@@ -17,9 +17,22 @@ button {
 	left: 40%;
 }
 
-#starter {opacity: 1; pointer-events: auto; display: block;}
-#first_step {opacity: 0; pointer-events: auto; display: block;}
-#second_step {opacity: 0; display: block;}
+#starter {
+	opacity: 1;
+	pointer-events: auto;
+	display: block;
+}
+
+#first_step {
+	opacity: 0;
+	pointer-events: auto;
+	display: block;
+}
+
+#second_step {
+	opacity: 0;
+	display: block;
+}
 
 ul {
 	list-style: none;
@@ -35,48 +48,51 @@ li a {
 
 .cave {
 	position: fixed;
-    top: 635px;
-    left: 1530px;
-    width: 200px;
-    height: 50px;
+	top: 635px;
+	left: 1530px;
+	width: 200px;
+	height: 50px;
 }
 
 .castle {
-    position: fixed;
-    top: 235px;
-    left: 1370px;
-    width: 150px;
-    height: 50px;
+	position: fixed;
+	top: 235px;
+	left: 1370px;
+	width: 150px;
+	height: 50px;
 }
 
-.monster-life {margin-bottom: 10px;}
-
-.monster-life, .player-life{
-	position:relative;
-	width:500px;
-	position:relative;
-	padding:3px;
+.monster-life {
+	margin-bottom: 10px;
 }
 
-.percent{
-	position:absolute;
-	display:inline-block;
-	top:3px;
+.monster-life,
+.player-life {
+	position: relative;
+	width: 500px;
+	position: relative;
+	padding: 3px;
+}
+
+.percent {
+	position: absolute;
+	display: inline-block;
+	top: 3px;
 	left: 50%;
-	transform:translateX(-50%);
+	transform: translateX(-50%);
 }
 
 #monster-bar {
 	opacity: 1;
-	background-color:#2ecc71;
-	height:20px;
-	transition:width 150ms;
+	background-color: #2ecc71;
+	height: 20px;
+	transition: width 150ms;
 }
 
 #player-bar {
-	background-color:#2ecc71;
-	height:20px;
-	transition:width 150ms;
+	background-color: #2ecc71;
+	height: 20px;
+	transition: width 150ms;
 }
 
 .control {
@@ -84,5 +100,10 @@ li a {
 	margin-bottom: 10px;
 }
 
-#alive {display: block;}
-#dead {display: none;}
+#alive {
+	display: block;
+}
+
+#dead {
+	display: none;
+}
