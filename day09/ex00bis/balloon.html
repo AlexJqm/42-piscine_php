@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset="utf-8">
+	<title>Balloon</title>
+	<style>
+		#balloon {
+			margin: auto;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 100%;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var actual = 0;
+		var colors = ["red", "green", "blue"];
+		function add() {
+			var b = $("#balloon");
+			b.width(b.width() + 10);
+			b.height(b.height() + 10);
+			if (b.width() > 420 || b.height() > 420) {
+				b.width(200);
+				b.height(200);
+			}
+			actual += 1;
+			if (actual > 2)
+				actual = 0;
+			b.css('background-color', colors[actual]);
+		}
+		function out() {
+			var b = $("#balloon");
+			b.width(b.width() - 5);
+			b.height(b.height() - 5);
+			if (b.width() < 200 || b.height() < 200) {
+				b.width(200);
+				b.height(200);
+			}
+			actual -= 1;
+			if (actual < 0)
+				actual = 2;
+			b.css('background-color', colors[actual]);
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon" onclick="add()" onmouseout="out()">
+	</div>
+</body>
+</html>

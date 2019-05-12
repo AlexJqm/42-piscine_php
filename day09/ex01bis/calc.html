@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset="utf-8">
+		<title>Calc</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+	</head>
+<body>
+	<input id="nb1" type="text" placeholder="0123456789">
+	<select id="op-select">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="/">/</option>
+		<option value="*">*</option>
+		<option value="%">%</option>
+	</select>
+	<input id="nb2" type="text" placeholder="0123456789">
+	<input type="submit" onclick="calc()" value="Try me!">
+	<script>
+		setInterval(function () {
+			alert("Please, use me...");
+		}, 30000);
+		function calc() {
+			var nb1 = $('#nb1');
+			var op = $('#op-select');
+			var nb2 = $('#nb2');
+			var nbr1 = parseInt(nb1.val());
+			var nbr2 = parseInt(nb2.val());
+			console.log(nb1.val());
+			if (isNaN(nbr1) || isNaN(nbr2) || nbr1 < 0 || nbr2 < 0)
+				alert("Error :(");
+			else {
+				var calc;
+				switch (op.val()) {
+					case "+": {
+						calc = nbr1 + nbr2;
+						break;
+					}
+					case "-": {
+						calc = nbr1 - nbr2;
+						break;
+					}
+					case "*": {
+						calc = nbr1 * nbr2;
+						break;
+					}
+					case "/": {
+						if (nbr2 === 0) {
+							alert("It's over 9000!");
+							return;
+						}
+						calc = nbr1 / nbr2;
+						break;
+					}
+					case "%": {
+						if (nbr2 === 0) {
+							alert("It's over 9000!");
+							return;
+						}
+						calc = nbr1 % nbr2;
+						break;
+					}
+				}
+				alert(calc);
+				console.log(calc);
+			}
+		}
+	</script>
+</body>
+</html>

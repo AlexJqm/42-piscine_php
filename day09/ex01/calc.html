@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang='fr'>
-  <head>
-    <title>Calc</title>
-  </head>
-  <body>
-    <input id="nb1" type="text" placeholder="0123456789">
-    <select id="op-select">
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="/">/</option>
-      <option value="*">*</option>
-      <option value="%">%</option>
-    </select>
-    <input id="nb2" type="text" placeholder="0123456789">
-    <input type="submit" onclick="calc()" value="Try me!">
-
-    <script type="text/javascript">
-      function msg(str) {
-        console.log(str);
-        alert(str);
-      }
-      function check(n) {
-        return ((/^(\+|\-)?(0|[1-9]\d*)$/.test(n)) && (n >= 0));
-      }
-      function calc() {
-        var nb1 = +document.getElementById('nb1').value;
-        var nb2 = +document.getElementById('nb2').value;
-        var op = document.getElementById('op-select').value;
-        if (!check(nb1) || !check(nb2))
-          msg('Error :(');
-        else if ((op == "/" || op == "%") && nb2 == "0")
-          msg("It's over 9000!");
-        else if (op == "+")
-          msg(nb1 + nb2);
-        else if (op == "-")
-          msg(nb1 - nb2);
-        else if (op == "/")
-          msg(nb1 / nb2);
-        else if (op == "*")
-          msg(nb1 * nb2);
-        else if (op == "%")
-          msg(nb1 - nb2);
-      }
-    </script>
+<head>
+	<meta charset="utf-8">
+	<title>Calc</title>
+</head>
+<body>
+	<input id="nb1" type="text" placeholder="0123456789">
+	<select id="op-select">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="/">/</option>
+		<option value="*">*</option>
+		<option value="%">%</option>
+	</select>
+	<input id="nb2" type="text" placeholder="0123456789">
+	<input type="submit" onclick="calc()" value="Try me!">
+	<script type="text/javascript">
+		setInterval(function () {
+			alert("Please, use me...");
+		}, 30000);
+		function msg(str) {
+			console.log(str);
+			alert(str);
+		}
+		function check(n) {
+			return ((/^(\+|\-)?(0|[1-9]\d*)$/.test(n)) && (n >= 0));
+		}
+		function calc() {
+			var nb1 = +document.getElementById('nb1').value;
+			var nb2 = +document.getElementById('nb2').value;
+			var op = document.getElementById('op-select').value;
+			if (!check(nb1) || !check(nb2))
+				msg('Error :(');
+			else if ((op == "/" || op == "%") && nb2 == "0")
+				msg("It's over 9000!");
+			else if (op == "+")
+				msg(nb1 + nb2);
+			else if (op == "-")
+				msg(nb1 - nb2);
+			else if (op == "/")
+				msg(nb1 / nb2);
+			else if (op == "*")
+				msg(nb1 * nb2);
+			else if (op == "%")
+				msg(nb1 - nb2);
+		}
+	</script>
   </body>
 </html>

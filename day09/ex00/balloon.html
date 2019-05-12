@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang='fr'>
-  <head>
-    <title>Balloon</title>
-    <style>
-      #balloon {
-        height: 200px;
-        width: 200px;
-        background-color: red;
-        border-radius: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id='balloon' onclick="add()" onmouseout="out()"></div>
-    <script type="text/javascript">
-      var b = document.getElementById('balloon');
-      b.style.background = "red";
-      function add() {
-        var size = b.offsetHeight + 10;
-        if (size < 420) {
-          b.style.height = size + "px";
-          b.style.width = size + "px";
-        }
-        else {
-          b.style.height = "200px";
-          b.style.width = "200px";
-        }
-        if (b.style.background == "red")
-          b.style.background = "green";
-        else if (b.style.background == "green")
-          b.style.background = "blue";
-        else if (b.style.background == "blue")
-          b.style.background = "red";
-      }
-      function out() {
-        var size = b.offsetHeight - 5;
-        if (size > 200) {
-          b.style.height = size + "px";
-          b.style.width = size + "px";
-        }
-        else {
-          b.style.height = "200px";
-          b.style.width = "200px";
-        }
-        if (b.style.background == "blue")
-          b.style.background = "green";
-        else if (b.style.background == "green")
-          b.style.background = "red";
-        else if (b.style.background == "red")
-          b.style.background = "blue";
-      }
-    </script>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<title>Balloon</title>
+	<style>
+	#balloon {
+		margin: auto;
+		height: 200px;
+		width: 200px;
+		background-color: red;
+		border-radius: 100%;
+	}
+	</style>
+</head>
+<body>
+	<div id='balloon' onclick="add()" onmouseout="out()"></div>
+	<script type="text/javascript">
+		var b = document.getElementById('balloon');
+		b.style.background = "red";
+		function add() {
+			var size = b.offsetHeight + 10;
+			if (size < 420) {
+				b.style.height = size + "px";
+				b.style.width = size + "px";
+			}
+			else {
+				b.style.height = "200px";
+				b.style.width = "200px";
+			}
+			if (b.style.background == "red")
+				b.style.background = "green";
+			else if (b.style.background == "green")
+				b.style.background = "blue";
+			else if (b.style.background == "blue")
+				b.style.background = "red";
+		}
+		function out() {
+			var size = b.offsetHeight - 5;
+			if (size > 200) {
+				b.style.height = size + "px";
+				b.style.width = size + "px";
+			}
+			else {
+				b.style.height = "200px";
+				b.style.width = "200px";
+			}
+			if (b.style.background == "blue")
+				b.style.background = "green";
+			else if (b.style.background == "green")
+				b.style.background = "red";
+			else if (b.style.background == "red")
+				b.style.background = "blue";
+		}
+		</script>
+</body>
 </html>
