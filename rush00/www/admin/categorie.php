@@ -6,10 +6,11 @@
 		exit();
 	} else {
 		if ($_SERVER['PHP_AUTH_USER'] == "admin" && hash("sha256", $_SERVER['PHP_AUTH_PW']) == "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918") {
+			include("includes/db.php");
 ?>
-<div class="container"  style="padding-top: 25px;">
+<div class="container" style="padding-top: 25px;">
 	<form action="admin.php?categorie" method="post" enctype="multipart/form-data">
-		<table class="table table-sm table-borderless">
+		<table class="table table-sm table-borderless table-hover">
 			<thead class="thead-dark">
 				<tr>
 					<td><h2>Liste des categories</h2></td>
@@ -20,25 +21,25 @@
 					<th>Option</th>
 				</tr>
 			</thead>
-			<?php
-				include("includes/db.php");
-				$get_cat = "select * from categories";
-				$run_cat = mysqli_query($con, $get_cat);
-				$i = 0;
-				while ($row_cat = mysqli_fetch_array($run_cat)) {
-					$cat_id = $row_cat['cat_id'];
-					$cat_title = $row_cat['cat_title'];
-					$i++;
-			?>
+<?php
+		$get_cat = "select * from categories";
+		$run_cat = mysqli_query($con, $get_cat);
+		$i = 0;
+		while ($row_cat = mysqli_fetch_array($run_cat)) {
+			$cat_id = $row_cat['cat_id'];
+			$cat_title = $row_cat['cat_title'];
+			$i++;
+?>
 			<tr>
 				<td><?php echo $i;?></td>
 				<td><?php echo $cat_title;?></td>
-				<td><input type="submit" name="delete_post" value="Supprimer" class="btn btn-warning"></td>
+				<td><button type="button" class="btn btn-sm btn-warning"><a href="admin.php?remove_cat=<?php echo $cat_id;?>" style="text-decoration: none; color: black;">Supprimer</a></button></td>
 			</tr>
-			<?php } ?>
+<?php
+		}
+?>
 		</table>
 	</form>
-
 	<form action="admin.php?categorie" method="post" enctype="multipart/form-data">
 		<table class="table table-sm table-borderless">
 			<tr>
@@ -47,7 +48,7 @@
 			<tr>
 				<td><b>Nom de la categorie</b></td>
 				<td><input type="text" name="cat_title" size="60" required/></td>
-				<td><input type="submit" name="insert_post" value="Envoyer" class="btn btn-secondary"></td>
+				<td><input type="submit" name="insert_post" value="Envoyer" class="btn btn-sm btn-secondary"></td>
 			</tr>
 		</table>
 	</form>
@@ -69,13 +70,9 @@
 				if ($insert_pro)
 					echo "<script>window.open('admin.php?categorie=cat_success','_self')</script>";
 			}
-			if (isset($_POST['delete_post'])){
-				$delete_id = $cat_id;
-				$delete_pro = "delete from categories where cat_id='$delete_id'";
-				$run_delete = mysqli_query($con, $delete_pro);
-				if ($run_delete)
-					echo "<script>window.open('admin.php?categorie=cat_success','_self')</script>";
-			}
+		} else {
+			header('WWW-Authenticate: Basic realm="admin"');
+			header('HTTP/1.0 401 Unauthorized');
 		}
 	}
 ?>

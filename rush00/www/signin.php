@@ -1,8 +1,4 @@
 <style>
-	html,body {
-		height: 100%;
-	}
-
 	.login_container {
 		display: -ms-flexbox;
 		display: flex;
@@ -41,16 +37,54 @@
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 	}
+	.effect {
+		animation: launch 1s;
+		opacity: 1;
+	}
+	@keyframes launch {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 </style>
-<div class="login_container">
-	<form class="form-signin" action="login.php" method="POST">
-		<img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-		<h1 class="h1 mb-3 font-weight-normal">Connexion</h1>
-		<label for="login" class="sr-only">Pseudonyme</label>
-		<input type="text" id="login" name="login" class="form-control" placeholder="Pseudonyme" required autofocus>
-		<label for="passwd" class="sr-only">Mot de passe</label>
-		<input type="password" id="passwd" name="passwd" class="form-control" placeholder="Mot de passe" required>
-		<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Se connecter</button>
-		<p class="mt-5 mb-3 text-muted">minishop &copy; 2019</p>
-	</form>
+<?php
+	if ($_GET['signin'] == 'redir') {
+?>
+<div class="effect">
+	<div class="login_container">
+		<form class="form-signin" action="login.php?signin=redir" method="POST">
+			<h1 class="h1 mb-3 font-weight-normal">Connexion</h1>
+			<label for="login" class="sr-only">Pseudonyme</label>
+			<input type="text" id="login" name="login" class="form-control" placeholder="Pseudonyme" required autofocus>
+			<label for="passwd" class="sr-only">Mot de passe</label>
+			<input type="password" id="passwd" name="passwd" class="form-control" placeholder="Mot de passe" required>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Se connecter</button>
+			<p class="mt-5 mb-3 text-muted">minishop &copy; 2019</p>
+			<a href="admin/admin.php" style="text-decoration: none; color: #6c757d; padding-left: 70px;"><small pan class="text-muted">ADMIN PANEL <i class="fas fa-arrow-circle-right"></i></small></a></p>
+		</form>
+	</div>
 </div>
+<?php
+	}
+	else {
+?>
+<div class="effect">
+	<div class="login_container">
+		<form class="form-signin" action="login.php" method="POST">
+			<h1 class="h1 mb-3 font-weight-normal">Connexion</h1>
+			<label for="login" class="sr-only">Pseudonyme</label>
+			<input type="text" id="login" name="login" class="form-control" placeholder="Pseudonyme" required autofocus>
+			<label for="passwd" class="sr-only">Mot de passe</label>
+			<input type="password" id="passwd" name="passwd" class="form-control" placeholder="Mot de passe" required>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Se connecter</button>
+			<p class="mt-5 mb-3 text-muted">minishop &copy; 2019
+			<a href="admin/admin.php" style="text-decoration: none; color: #6c757d; padding-left: 70px;"><small pan class="text-muted">ADMIN PANEL <i class="fas fa-arrow-circle-right"></i></small></a></p>
+		</form>
+	</div>
+</div>
+<?php
+	}
+?>

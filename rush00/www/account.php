@@ -1,8 +1,4 @@
 <style>
-	html,body {
-		height: 100%;
-	}
-
 	.edit_container {
 		display: -ms-flexbox;
 		display: flex;
@@ -41,20 +37,32 @@
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 	}
+	.effect {
+		animation: launch 1s;
+		opacity: 1;
+	}
+	@keyframes launch {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 </style>
 
-<div class="edit_container">
-	<form class="form-signin" action="edit.php" method="POST">
-		<img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-		<h1 class="h1 mb-3 font-weight-normal">Modifier mon mot de passe.</h1>
-		<label for="login" class="sr-only">Pseudonyme</label>
-		<input type="text" id="login" name="login" class="form-control" placeholder="Pseudonyme" required autofocus>
-		<label for="passwd" class="sr-only">Mot de passe</label>
-		<input type="password" id="passwd" name="oldpw" class="form-control" placeholder="Mot de passe" required>
-		<label for="passwd" class="sr-only">Nouveau Mot de passe</label>
-		<input type="password" id="passwd" name="newpw" class="form-control" placeholder="Nouveau Mot de passe" required>
-		<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Modifier</button>
-		<p class="mt-5 mb-3 text-muted">minishop &copy; 2019</p>
-	</form>
+<div class="effect">
+	<div class="edit_container">
+		<form class="form-signin" action="edit.php" method="POST">
+			<h1 class="h1 mb-3 font-weight-normal">Modifier mon mot de passe</h1>
+			<label for="login" class="sr-only">Pseudonyme</label>
+			<input type="text" id="login" name="login" class="form-control" placeholder="Pseudonyme" required autofocus>
+			<label for="passwd" class="sr-only">Mot de passe</label>
+			<input type="password" id="passwd" name="oldpw" class="form-control" placeholder="Mot de passe" required>
+			<label for="passwd" class="sr-only">Nouveau Mot de passe</label>
+			<input type="password" id="passwd" name="newpw" class="form-control" placeholder="Nouveau Mot de passe" required>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Modifier</button>
+			<p class="mt-5 mb-3 text-muted">minishop &copy; 2019</p>
+		</form>
+	</div>
 </div>
-

@@ -8,16 +8,19 @@
 			$data = unserialize(file_get_contents("../private/passwd"));
 			if ($data)
 				foreach ($data as $key => $value)
-					if ($value["login"] == $_POST["login"])
-						exit ("ERROR\n");
+					if ($value["login"] == $_POST["login"]) {
+						header('Location: /index.php?register=error');
+						exit ();
+					}
 		}
 	}
-	else
-		exit ("ERROR\n");
+	else {
+		header('Location: /index.php?register=error');
+		exit();
+	}
 	$user["login"] = $_POST["login"];
 	$user["passwd"] = hash('sha256', $_POST["passwd"]);
 	$data[] = $user;
 	file_put_contents("../private/passwd", serialize($data));
-	header('Location: /index.php?signin');
-	exit ();
+	header('Location: /index.php?signin=success');
 ?>

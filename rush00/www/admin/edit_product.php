@@ -24,54 +24,63 @@
 				$category_title = $row_cat['cat_title'];
 			}
 ?>
-<html>
-	<head>
-		<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-		<script>tinymce.init({selector:'textarea'});</script>
-	</head>
+<style>
+	.tox-notifications-container {
+		display: none !important;
+	}
+</style>
 
-	<body>
-		<form action="" method="post" enctype="multipart/form-data">
-			<table >
-				<tr>
-					<td><h2>Modifier un produit</h2></td>
-				</tr>
-				<tr>
-					<td><b>Nom du produit:</b></td>
-					<td><input type="text" name="product_title" size="60" required/></td>
-				</tr>
-				<tr>
-					<td><b>Categorie du produit:</b></td>
-					<td>
-					<select name="product_cat">
-						<option>Selectionner une categorie</option>
-							<?php
-								$get_cats = "select * from categories";
-								$run_cats = mysqli_query($con, $get_cats);
-								while ($row_cats = mysqli_fetch_array($run_cats)) {
-									$cat_id = $row_cats['cat_id'];
-									$cat_title = $row_cats['cat_title'];
-									echo "<option value='$cat_id'>$cat_title</option>";
-								}
-							?>
-					</select>
-					</td>
-				</tr>
-				<tr>
-					<td><b>Prix du produit:</b></td>
-					<td><input type="text" name="product_price" required/></td>
-				</tr>
-				<tr>
-					<td><b>Description du produit:</b></td>
-					<td><textarea name="product_desc" cols="20" rows="10"></textarea></td>
-				</tr>
-				<tr>
-					<td><input type="submit" name="update_product" value="Envoyer"/></td>
-				</tr>
-			</table>
-		</form>
-	</body>
-</html>
+<div class="container" style="padding-top: 25px;">
+	<form action="" method="post" enctype="multipart/form-data">
+		<table class="table table-borderless table-sm">
+			<tr>
+				<td><h2>Modifier un produit</h2></td>
+			</tr>
+			<tr>
+				<td><b>Nom du produit</b></td>
+				<td><input type="text" name="product_title" size="60" value="<?php echo $pro_title; ?>"required/></td>
+			</tr>
+			<tr>
+				<td><b>Categorie du produit</b></td>
+				<td>
+				<select name="product_cat">
+<?php
+		echo "<option value='$pro_cat' selected='selected'>$category_title</option>";
+		$get_cats = "select * from categories";
+		$run_cats = mysqli_query($con, $get_cats);
+		while ($row_cats = mysqli_fetch_array($run_cats)) {
+			$cat_id = $row_cats['cat_id'];
+			$cat_title = $row_cats['cat_title'];
+			if ($cat_id != $pro_cat)
+				echo "<option value='$cat_id'>$cat_title</option>";
+		}
+?>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Prix du produit</b></td>
+				<td><input type="text" name="product_price" value="<?php echo $pro_price; ?>" required/></td>
+			</tr>
+			<tr>
+				<td><b>Description du produit</b></td>
+				<td><textarea name="product_desc" cols="20" rows="10"><?php echo $pro_desc; ?></textarea></td>
+			</tr>
+			<tr align="right">
+				<td colspan="3">
+					<a href="admin.php?product" style="text-decoration:none; color:white;">
+						<button class="btn btn-sm btn-primary">
+							Retour
+						</button>
+					</a>
+					<input type="submit" name="update_product" value="Envoyer" class="btn btn-sm btn-secondary">
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+<script>tinymce.init({selector:'textarea'});</script>
 <?php
 			if (isset($_POST['update_product'])) {
 				$update_id = $pro_id;
@@ -82,8 +91,11 @@
 				$update_product = "update products set product_cat='$product_cat',product_title='$product_title',product_price='$product_price',product_desc='$product_desc' where product_id='$update_id'";
 				$run_product = mysqli_query($con, $update_product);
 				if ($run_product)
-					echo "<script>window.open('admin.php?list_product','_self')</script>";
+					echo "<script>window.open('admin.php?product','_self')</script>";
 			}
+		} else {
+			header('WWW-Authenticate: Basic realm="admin"');
+			header('HTTP/1.0 401 Unauthorized');
 		}
 	}
 ?>

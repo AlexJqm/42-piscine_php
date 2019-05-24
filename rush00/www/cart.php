@@ -21,58 +21,78 @@
 		max-width: 960px;
 		padding-top: 25px;
 	}
+	.effect {
+		animation: launch 1s;
+		opacity: 1;
+	}
+	@keyframes launch {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 </style>
-<div class="container">
-	<form action="" method="post" enctype="multipart/form-data">
-		<table class="table table-borderless">
-			<thead class="thead-dark">
+
+<div class="effect">
+	<div class="container">
+		<form action="" method="post" enctype="multipart/form-data">
+			<table class="table table-borderless">
+				<thead class="thead-dark">
+					<tr>
+						<th>Selectionner</th>
+						<th>Produit(s)</th>
+						<th>Quantité</th>
+						<th>Prix</th>
+					</tr>
+				</thead>
+<?php
+	$total = 0;
+	global $con;
+	$ip = getIp();
+	$sel_price = "select * from cart where ip_add='$ip'";
+	$run_price = mysqli_query($con, $sel_price);
+	while ($p_price = mysqli_fetch_array($run_price)) {
+		$pro_id = $p_price['p_id'];
+		$pro_price = "select * from products where product_id='$pro_id'";
+		$run_pro_price = mysqli_query($con,$pro_price);
+		$pp_price = mysqli_fetch_array($run_pro_price);
+		$product_price = array($pp_price['product_price']);
+		$product_title = $pp_price['product_title'];
+		$single_price = $pp_price['product_price'];
+		$values = array_sum($product_price) * $p_price['qty'];
+		$total += $values;
+?>
 				<tr>
-					<th scope="col">Selectionner</th>
-					<th scope="col">Produit(s)</th>
-					<th scope="col">Quantite</th>
-					<th scope="col">Prix</th>
+					<th scope="row"><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></th>
+					<td><?php echo $product_title; ?></td>
+					<td><?php echo $p_price['qty'];?></td>
+					<td><?php echo "$" . $single_price; ?></td>
 				</tr>
-			</thead>
-			<?php
-				$total = 0;
-				global $con;
-				$ip = getIp();
-				$sel_price = "select * from cart where ip_add='$ip'";
-				$run_price = mysqli_query($con, $sel_price);
-				while ($p_price = mysqli_fetch_array($run_price)) {
-					$pro_id = $p_price['p_id'];
-					$pro_price = "select * from products where product_id='$pro_id'";
-					$run_pro_price = mysqli_query($con,$pro_price);
-					$pp_price = mysqli_fetch_array($run_pro_price);
-					$product_price = array($pp_price['product_price']);
-					$product_title = $pp_price['product_title'];
-					$single_price = $pp_price['product_price'];
-					$values = array_sum($product_price) * $p_price['qty'];
-					$total += $values;
-			?>
-			<tr>
-				<th scope="row"><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></th>
-				<td><?php echo $product_title; ?></td>
-				<td><?php echo $p_price['qty'];?></td>
-				<td><?php echo "$" . $single_price; ?></td>
-			</tr>
-			<?php  } ?>
-			<tr>
-				<td colspan="3" align="right"><b>Prix total:</b></td>
-				<td><?php echo "$" . $total;?></td>
-			</tr>
-			<tr align="center">
-				<td colspan="1"><button type="submit" name="update_cart" class="btn btn-primary">Supprimer</button></td>
-				<td><button type="submit" name="continue" class="btn btn-primary">Continuer mes achats</button></td>
-				<td>
-					<button class="btn btn-primary"><?php if ($user != '') { ?>
-						<a href="index.php?payment" style="text-decoration:none; color:white;">Commander</a>
-						<?php } else echo '<a href="index.php?signin=redir" style="text-decoration:none; color:white;">Commander</a>'; ?>
-					</button>
-				</td>
-			</tr>
-		</table>
-	</form>
+				<?php  } ?>
+				<tr>
+					<td colspan="3" align="right"><b>Prix total:</b></td>
+					<td><?php echo "$" . $total;?> <small class="text-muted">/ mois</small></td>
+				</tr>
+				<tr align="right">
+					<td><button type="submit" name="update_cart" class="btn btn-primary">Supprimer</button></td>
+					<td><button type="submit" name="continue" class="btn btn-primary">Retour à la boutique</button></td>
+					<td>
+						<button class="btn btn-primary">
+<?php
+	if ($user != '') {
+?>
+							<a href="index.php?payment" style="text-decoration:none; color:white;">Commander</a>
+<?php
+	} else echo '<a href="index.php?signin=redir" style="text-decoration:none; color:white;">Commander</a>';
+?>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </div>
 <?php
 	function updatecart(){
@@ -89,7 +109,6 @@
 		if (isset($_POST['continue']))
 			echo "<script>window.open('index.php?products','_self')</script>";
 	}
-
 	echo @$up_cart = updatecart();
 	if ($_GET['cart'] != null) {
 		global $con;

@@ -41,27 +41,24 @@
 		cat_title TEXT NOT NULL);";
 	query_table($db_link, "categories", $create_table_categories);
 
-	$insert_produits = "INSERT INTO products (product_cat,
+	$insert_products = "INSERT INTO products (product_cat,
 		product_title, product_price, product_desc) VALUES
-		(1, 'Supreme Water Bottle', 50, '<p>A red water bottle with Supreme logo.</p>'),
-		(1, 'Supreme Teddy Bear', 75, '<p>A stuffed bear with Supreme logo.</p>'),
-		(1, 'Supreme Soup Bowl', 50, '<p>A bowl and spoon with Supreme logo.</p>'),
-		(1, 'Supreme RC', 150, '<p>An RC car with Supreme logo.</p>'),
-		(1, 'Supreme Skateboard', 150, '<p>A skateboard with Supreme logo.</p>'),
-		(2, 'Logo Hooded Sweatshirt', 275, '<p>A warm sweatshirt with a signature logo.</p>'),
-		(2, 'Empre State T-shirt', 100, '<p>A plain T-shirt with a photo of an Emprire State building</p>'),
-		(2, 'Color-Blocked Hoodie', 275, '<p>A bright color-blocked zip hoodie</p>'),
-		(2, 'Fuck Love T-Shirt', 100, '<p>A white fuck love T-shirt</p>'),
-		(2, 'Supreme Kiss Tee', 100, '<p>A pink T-shirt with kissing couples</p>'),
-		(3, 'Adidas Yeezy 350 V2', 280, '<p>Purple Adidas sneakers</p>'),
-		(3, 'Vans SK-8-HI', 480, '<p>Blood and semen Vans</p>'),
-		(3, 'The 10 Nike X OFF', 450, '<p>Tulip pink Nikes</p>'),
-		(3, 'Yeezy 350', 400, '<p>Frozen red sneakers</p>'),
-		(3, 'Jordan Retro 11', 350, '<p>Retro black-and-white Jordans</p>');";
-	query_table($db_link, "produits", $insert_produits);
+		(1, 'Minecraft', 5, '<p>Intel i5-9700F 4c 8t 2GHz<br>8GB DDR3 1333MHz<br>1x120Go SSD</p>'),
+		(1, 'Left 4 Dead 2', 7, '<p>Intel i7-4790K 4c 8t 4GHz<br>16GB DDR3 1333MHz<br>1x120Go SSD</p>'),
+		(1, 'CS:GO', 10, '<p>Intel i7-4790K 4c 8t 4GHz<br>16GB DDR3 1333MHz<br>1x240Go SSD</p>'),
+		(1, 'TrackMania', 5, '<p>Intel i7-4790K 4c 8t 4GHz<br>8GB DDR3 1333MHz<br>1x120Go SSD</p>'),
+		(1, 'Terraria', 7, '<p>Intel i5-9700F 4c 8t 2GHz<br>8GB DDR3 1333MHz<br>1x240Go SSD</p>'),
+		(1, 'Dota 2', 10, '<p>Intel i7-4790K 4c 8t 4GHz<br>16GB DDR3 1333MHz<br>1x120Go SSD</p>'),
+		(2, 'Mumble', 15, '<p>Intel i3-404NF 2c 8t 2GHz<br>4GB DDR3 1333MHz<br>1x60Go SSD</p>'),
+		(2, 'TeamSpeak', 12, '<p>Intel i3-404NF 2c 8t 2GHz<br>6GB DDR3 1333MHz<br>1x60Go SSD</p>'),
+		(3, 'Starter pack', 20, '<p>Intel i5-9700F 4c 8t 2GHz<br>8GB DDR3 1333MHz<br>1x240Go SSD</p>'),
+		(3, 'Startup pack', 30, '<p>Intel i7-4790K 4c 8t 4GHz<br>16GB DDR3 1333MHz<br>1x500Go SSD</p>'),
+		(3, 'Entreprise pack', 50, '<p>Intel i7-4790K 4c 8t 4GHz<br>16GB DDR4 1333MHz<br>1x1To SSD</p>'),
+		(3, 'Data center', 150, '<p>Intel i10-7000 6c 8t 4GHz<br>32GB DDR4 1333MHz<br>5x1To SSD</p>');";
+	query_table($db_link, "products", $insert_products);
 
 	$insert_categories = "INSERT INTO categories (cat_id, cat_title) VALUES
-		(1, 'accessories'), (2, 'clothing'), (3, 'footwear');";
+		(1, 'Serveur gaming'), (2, 'Serveur vocal'), (3, 'Serveur web');";
 	query_table($db_link, "categories", $insert_categories);
 
 	$create_table_cart = "CREATE TABLE cart
