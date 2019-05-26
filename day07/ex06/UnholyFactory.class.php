@@ -2,7 +2,7 @@
 	class UnholyFactory {
 		private $_soldat = array();
 		public function absorb($person) {
-			if ( get_parent_class($person)) {
+			if (get_parent_class($person)) {
 				if (isset($this->_soldat[$person->getName()]))
 					print("(Factory already absorbed a fighter of type " . $person->getName() . ")" . PHP_EOL);
 				else {
@@ -14,7 +14,7 @@
 				print("(Factory can't absorb this, it's not a fighter)" . PHP_EOL);
 		}
 		public function fabricate($soldat) {
-			if ( array_key_exists($soldat, $this->_soldat)) {
+			if (array_key_exists($soldat, $this->_soldat)) {
 				print("(Factory fabricates a fighter of type " . $soldat . ")" . PHP_EOL);
 				return (clone $this->_soldat[$soldat]);
 			}
