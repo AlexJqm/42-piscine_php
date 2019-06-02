@@ -8,6 +8,7 @@
 		$param[0] = preg_replace_callback( '/(?<=>)(.*?)(?=<)/is', ft_capit, $param[0]);
 		return $param[0];
 	}
-	function ft_capit($param)
+	function ft_capit($param) {
 		return strtoupper($param[0]);
+	}
 ?>

@@ -1,4 +1,4 @@
 #!/usr/bin/php
 <?php
-	phpinfo();
+	echo "Hello World!";
 ?>
